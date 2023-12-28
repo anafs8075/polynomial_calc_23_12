@@ -1,11 +1,22 @@
 package com.ll;
 
 public class Calc {
-    public static int run(String exp) {
+
+  public static boolean recursionDebug = true; // 내가 디버그 모드를 켜겠다 할때는 true로 변경
+
+  public static int runCallCount = 0;
+
+  public static int run(String exp) {
+    runCallCount++;
       exp = exp.trim(); // 여백 지움
       exp = stripOuterBracket(exp); // 괄호 제거
 
-      // 연산기호가 없으면 바로 리턴
+    if (recursionDebug) {
+      System.out.printf("exp(%d) : %s\n", runCallCount, exp);
+    }
+
+
+    // 연산기호가 없으면 바로 리턴
       if (!exp.contains(" ")) return Integer.parseInt(exp); // " "을 포함한다면 리턴
       boolean needToMultiply = exp.contains(" * "); // needToMultiplay에 " * " 을 포함
       boolean needToPlus = exp.contains(" + ") || exp.contains(" - "); // needToPlus에 " + " 나 " - " 을 포함
