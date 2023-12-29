@@ -153,5 +153,35 @@ public class CalcTest {
   void t28() {
     assertThat(Calc.run("20 * (2 + 3)")).isEqualTo(100);
   }
-}
 
+  @Test
+  @DisplayName("-(10 + 5) == -15")
+  void t29() {
+    assertThat(Calc.run("-(10 + 5)")).isEqualTo(-15);
+  }
+
+  @Test
+  @DisplayName("-(8 + 2) * -(7 + 3) + 5 == 105")
+  void t30() {
+    assertThat(Calc.run("-(8 + 2) * -(7 + 3) + 5")).isEqualTo(105);
+  }
+
+  @Test
+  @DisplayName("5 - (1 + 5) == -1")
+  void t31() {
+    assertThat(Calc.run("5 - (1 + 5)")).isEqualTo(-1);
+  }
+
+  @Test
+  @DisplayName("3 * 1 + (1 - (4 * 1 - (1 - 1))) == 0")
+  void t32() {
+    assertThat(Calc.run("3 * 1 + (1 - (4 * 1 - (1 - 1)))")).isEqualTo(0);
+  }
+
+  @Test
+  @DisplayName("1 * 2 + 3 == 5")
+  void t33() {
+    assertThat(Calc.run("1 * 2 + 3")).isEqualTo(5);
+  }
+
+}
